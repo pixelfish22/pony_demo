@@ -1,0 +1,21 @@
+module.exports = {
+    'Dashboard': 'Dashboard',
+    'dashboard-welcome': 'Welcome to the SPS WebUI Example App!',
+    'List Users': 'List Users',
+    'Edit User': 'Edit User',
+    'User Profile': 'User Profile',
+    'English': 'English',
+    'Russian': 'Русский',
+    'Ukrainian': 'українська мова',
+    'Not Found': 'Not Found',
+    'Name': 'Name',
+    'ID': 'ID',
+    'Email': 'Email',
+    'Actions': 'Actions',
+    'First Name': 'First Name',
+    'Last Name': 'Last Name',
+    'Username': 'Username',
+    'City': 'City',
+    'State': 'State',
+    'Zip': 'Postal Code'
+};

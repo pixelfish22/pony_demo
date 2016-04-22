@@ -1,0 +1,20 @@
+@import "settings";
+
+// Example of using SASS variables from WebUI-Core
+
+.my-class {
+  color: $brand-blue;
+}
+
+.languages-row {
+    font-size: 10px;
+    padding-bottom: 1.5em;
+
+    .active {
+        font-weight: bold;
+    }
+}
+
+table th[href] {
+    cursor: pointer;
+}

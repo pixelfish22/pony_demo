@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>WebUI Example App</title>
+    <base href=".">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-COMPATIBLE" content="IE=edge">
+    <style>body {visibility: hidden;}</style>
+    <script src="./jspm_packages/system.js"></script>
+    <script>System.config({baseURL:'.' });</script>
+    <script src="config.js"></script>
+    <script>
+        System.import('./app/bootstrap').then(function (module) {
+            module.constant('ACCESS_TOKEN', '{{access_token}}');
+            angular.bootstrap(document, [module.name]);
+        });
+    </script>
+</head>
+<body ng-controller="AppController as ctrl">
+<spsui-application>
+    <spsui-sidebar config-obj="ctrl.sidebarConfig"></spsui-sidebar>
+    <spsui-page-title
+        page-title="ctrl.title.text"
+        menu-click="ctrl.sidebarToggle()"></spsui-page-title>
+    <spsui-viewport>
+        <ui-view>
+            <!-- Your application views will render here -->
+        </ui-view>
+    </spsui-viewport>
+</spsui-application>
+</body>
+</html>

@@ -1,0 +1,23 @@
+<section ng-if="!ctrl.user.name" class="columns large-2">
+    <span class="spinner spin"></span>
+</section>
+
+<section ng-if="ctrl.user.name">
+
+    <h2>{{ctrl.user.name.first}} {{ctrl.user.name.last}}</h2>
+
+    <p>
+        {{ctrl.user.username}}<br/>
+        {{ctrl.user.email}}
+    </p>
+
+    <p>
+        {{ctrl.user.location.street}} <br>
+        {{ctrl.user.location.city}}, {{ctrl.user.location.state}} {{ctrl.user.location.zip}}
+    </p>
+
+    <p>
+        <a ui-sref="users.edit({id: ctrl.user.username})" class="button confirm" local-text="Edit User"></a>
+    </p>
+
+</section>

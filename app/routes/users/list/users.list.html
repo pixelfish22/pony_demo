@@ -1,0 +1,20 @@
+<ui-view>
+    <p>Sort: {{ctrl.params.sort}}</p>
+
+    <table class="columns">
+        <thead>
+            <th class="large-2" local-text="Username" ui-sref=".({sort: 'username'})"></th>
+            <th class="large-4" local-text="Name" ui-sref=".({sort: 'name.last'})"></th>
+            <th class="large-4" local-text="Email" ui-sref=".({sort: 'email'})"></th>
+            <th class="large-2 text-center" local-text="Actions"></th>
+        </thead>
+        <tr ng-repeat="user in ctrl.users | orderBy : ctrl.params.sort ">
+            <td><a ui-sref="users.detail({id: user.username})">{{user.username}}</a></td>
+            <td>{{user.name.last}}, {{user.name.first}}</td>
+            <td>{{user.email}}</td>
+            <td class="text-center">
+                <a ui-sref="users.edit({id: user.username})" local-text="Edit User"></a>
+            </td>
+        </tr>
+    </table>
+</ui-view>

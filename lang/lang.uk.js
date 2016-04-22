@@ -1,0 +1,20 @@
+module.exports = {
+    'Dashboard': 'Панель приладів',
+    'dashboard-welcome': 'Це введення в додаток',
+    'List Users': 'список користувачів',
+    'Edit User': 'редагувати користувача',
+    'User Profile': 'профіль',
+    'English': 'English',
+    'Russian': 'Русский',
+    'Ukrainian': 'українська мова',
+    'Not Found': 'Не знайдено',
+    'Name': 'ім\'я',
+    'ID': 'ID',
+    'Email': 'електронна пошта',
+    'Actions': 'дії',
+    'First Name': 'ім\'я',
+    'Last Name': 'прізвище',
+    'City': 'місто',
+    'State': 'стан',
+    'Zip': 'Поштовий індекс'
+};
