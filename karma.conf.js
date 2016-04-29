@@ -4,7 +4,7 @@
 module.exports = function (config) {
     config.set({
 
-        basePath: 'application/static/',
+        basePath: '.',
 
         port: 9687,
 
@@ -44,6 +44,8 @@ module.exports = function (config) {
 
             // These files are included before SystemJS loader is available,
             // so don't expect anything in here to be able to use require().
+            'node_modules/karma-babel-preprocessor/node_modules/babel-core/browser-polyfill.js',
+            'node_modules/jasmine-async-sugar/jasmine-async-sugar.js'
 
         ],
 
@@ -52,7 +54,13 @@ module.exports = function (config) {
         ],
 
         preprocessors: {
-            'app/**/!(*spec|*mock).js': 'coverage'
+            'app/**/!(*spec|*mock).js': ['babel', 'coverage']
+        },
+        babelPreprocessor: {
+            options: {
+                stage:1,
+                sourceMap: 'inline'
+            }
         },
 
         specReporter: {
@@ -65,23 +73,28 @@ module.exports = function (config) {
         },
 
         coverageReporter: {
-            dir: 'test/reports/',
+            instrumenters: { isparta : require('isparta') },
+            instrumenter: {
+                'app/**/*.js': 'isparta'
+            },
+            dir: 'test-reports/coverage/',
             reporters: [
-                {type: 'html', subdir: 'coverage'}, // Human readable
-                {type: 'cobertura', subdir: '.', file: 'cobertura.xml'} // Jenkins
+                {type: 'html'},
+                {type: 'text-summary'}
             ]
         },
 
         jspm: {
             useBundles: false,
+            config: 'config.js',
             loadFiles: [
                 'app/**/*.spec.js'
             ],
             serveFiles: [
-                'config.js',
                 'jspm_packages/**/*',
                 'test/*.js',
-                'app/**/*'
+                'app/**/*.js',
+                'app/**/*.html'
             ]
         },
 
@@ -90,7 +103,8 @@ module.exports = function (config) {
             '/config.js': '/base/config.js',
             '/lang/': '/base/lang/',
             '/test/': '/base/test/',
-            '/js/': '/base/js/'
+            '/js/': '/base/js/',
+            '/app/': '/base/app/'
         }
 
     });

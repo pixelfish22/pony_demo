@@ -1,10 +1,12 @@
 <h1>Ponies</h1>
 <div class="row">
-    <div class="columns small-4">
-        This
+    <div class="columns small-8">
+        <button ng-repeat="tag in ctrl.tags" ng-click="ctrl.getPonies(tag)">{{ tag }}</button>
     </div>
-    <div class="columns small-12 end">
-        <button ng-repeat="pony in ctrl.ponies" ng-click="showPony(pony)">{{ pony }}</button>
+    <div class="columns small-8 end">
+        <div ng-repeat="pony in ctrl.ponies">
+            <img ng-src="{{ pony.thumbnail }}" alt="pony.tags.join(', ')">
+        </div>
     </div>
 
 </div>

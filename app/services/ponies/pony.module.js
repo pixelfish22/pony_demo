@@ -1,11 +1,19 @@
 import PonyService from './pony.service';
 
 const MODULE_NAME = 'ponies.service';
+const SERVICE_NAME = 'PonyService';
 
 angular
     .module(MODULE_NAME, [])
-    .service('PonyService', PonyService);
+    .service(SERVICE_NAME, PonyService);
 
-console.log('pony service', MODULE_NAME);
+export default SERVICE_NAME;
 
-export default MODULE_NAME;
+import myService from './myService';
+const MODULE_NAME = "myModule"
+export default angular.module(MODULE_NAME)
+    .service('myService', myService).name
+export default MODULE_NAME
+
+import myModule from './myModule';
+angular.module('myOtherModule', [myModule]);

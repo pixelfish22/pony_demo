@@ -1,17 +1,16 @@
 
-
 class PonyService {
     constructor($http){
         this.$http = $http;
-        this.baseUrl = 'http://ponyfac.es/api.json';
+        this.baseUrl = 'http://ponyfac.es/api.jsonp:JSON_CALLBACK';
 
     }
     getTags(){
-        return $http.get(this.baseUrl+'/tags');
+        return this.$http.jsonp(this.baseUrl+'/tags');
 
     }
-    getTagImages(){
-
+    getPonies(tag){
+        return this.$http.jsonp(this.baseUrl+'/tag:'+tag);
     }
 }
 
